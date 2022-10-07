@@ -3,6 +3,8 @@
     ViewData["Title"] = "Home Page";
 }
 
+@using MusicStore.Helpers
+
 <br />
 
 <div class="text-center">
@@ -14,7 +16,7 @@
     <ul>
     @foreach(var item in Model)
     {
-            <li> <b>@Html.DisplayFor(modelItem => item.Artist.Name)</b> @Html.DisplayFor(modelItem => item.Title)</li>
+            <li> <b>@Html.DisplayFor(modelItem => item.Artist.Name)</b> @MyHelper.Truncate(item.Title, 7)</li>
         
 
     }

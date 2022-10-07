@@ -21,6 +21,9 @@ namespace MusicStore.Controllers
         public async Task<IActionResult> Index()
         {
             var albums = _context.Albums.OrderBy(a => Guid.NewGuid()).Include(a => a.Artist).Take(6);
+            var album = _context.Albums.FirstOrDefault(a => a.AlbumID == 1);
+            var cart = new ShoppingCart(HttpContext, _context);
+            cart.AddToCart(album);
             return View(await albums.ToListAsync());
         }
 
