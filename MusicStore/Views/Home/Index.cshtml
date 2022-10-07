@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<MusicStore.Models.Album>
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -10,4 +11,13 @@
             <img src="~/images/logo.png" class="rounded" width="400"  />
         </div>
     </div>
+    <ul>
+    @foreach(var item in Model)
+    {
+            <li> <b>@Html.DisplayFor(modelItem => item.Artist.Name)</b> @Html.DisplayFor(modelItem => item.Title)</li>
+        
+
+    }
+    </ul>
+
 </div>

@@ -1,5 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using MusicStore.Data;
 using MusicStore.Models;
+using System;
 using System.Diagnostics;
 
 namespace MusicStore.Controllers
@@ -7,15 +10,18 @@ namespace MusicStore.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly StoreContext _context;
+        public HomeController(ILogger<HomeController> logger, StoreContext context)
         {
             _logger = logger;
+            _context = context;
+    
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var albums = _context.Albums.OrderBy(a => Guid.NewGuid()).Include(a => a.Artist).Take(6);
+            return View(await albums.ToListAsync());
         }
 
         public IActionResult Privacy()
