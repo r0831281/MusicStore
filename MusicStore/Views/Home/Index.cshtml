@@ -6,6 +6,15 @@
 @using MusicStore.Helpers
 
 <br />
+<style>
+	.albums{
+		display:flex;
+		flex-direction:row;
+		justify-content: center;
+		flex-basis: auto;
+	
+	}
+</style>
 
 <div class="text-center">
     <div class="jumbotron" style="background-color:lightblue; padding:40px 40px 40px 40px">
@@ -13,13 +22,17 @@
             <img src="~/images/logo.png" class="rounded" width="400"  />
         </div>
     </div>
-    <ul>
-    @foreach(var item in Model)
-    {
-            <li> <b>@Html.DisplayFor(modelItem => item.Artist.Name)</b> @MyHelper.Truncate(item.Title, 7)</li>
-        
 
-    }
-    </ul>
 
+</div>
+<div class="albums">
+	@foreach (var item in Model)
+	{
+		string url = "content/" + item.AlbumArtUrl;
+		<figure>
+			<img src="@url">
+			<figcaption> @Html.DisplayFor(modelItem => item.Artist.Name)  @*@MyHelper.Truncate(item.Title, 7)*@</figcaption>
+		</figure>
+
+	}
 </div>
