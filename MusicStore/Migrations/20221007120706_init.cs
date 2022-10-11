@@ -8,7 +8,7 @@ namespace MusicStore.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-           /* migrationBuilder.CreateTable(
+            migrationBuilder.CreateTable(
                 name: "Artist",
                 columns: table => new
                 {
@@ -72,7 +72,7 @@ namespace MusicStore.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Album_GenreID",
                 table: "Album",
-                column: "GenreID");*/
+                column: "GenreID");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
