@@ -51,26 +51,30 @@ textarea {
 
 /* Music Store additions */
 
-ul#album-list li {
+ul.album-list li {
     height: 160px;
-}
-
-ul#album-list li img:hover {
-    box-shadow: 1px 1px 7px #777;
-}
-
-ul#album-list li img {
-    box-shadow: 1px 1px 5px #999;
-    border: none;
-    padding: 0;
-}
-
-ul#album-list li a, ul#album-details li a {
     text-decoration:none;
 }
 
-ul#album-list li a:hover {
-    background: none;
-    text-shadow: 1px 1px 2px #bbb;
-    color: #363430;
+ul.album-list li img:hover {
+    box-shadow: 1px 1px 7px #777;
 }
+
+    ul.album-list li img {
+        max-height: 150px;
+        box-shadow: 1px 1px 5px #999;
+        border: none;
+        padding: 0;
+        text-decoration: none;
+    }
+
+ul.album-list li, ul.album-details li {
+    text-decoration:none;
+}
+
+    ul.album-list li a:hover {
+        background: none;
+        text-shadow: 1px 1px 2px #bbb;
+        color: #363430;
+        text-decoration: none;
+    }
